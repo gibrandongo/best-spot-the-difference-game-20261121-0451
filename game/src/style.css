@@ -1,0 +1,209 @@
+/* style.css — Harbour Lights layout and HUD. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #1d2b3a;
+  color: #f7ead2;
+  min-height: 100vh;
+}
+
+#app {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 12px 16px 16px;
+}
+
+header.hud {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 4px 12px;
+}
+
+header.hud h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: #ffd76a;
+  white-space: nowrap;
+}
+
+header.hud .stat {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+header.hud .stat b {
+  color: #ffd76a;
+  font-size: 20px;
+}
+
+#time-value.urgent {
+  color: #ff6b5e;
+}
+
+header.hud .spacer { flex: 1; }
+
+button {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  background: #e8862e;
+  color: #fff8ea;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+button:hover { background: #f09a4a; }
+button:disabled { background: #5a6b7a; cursor: default; }
+
+.boards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.panel {
+  text-align: center;
+}
+
+.panel canvas {
+  display: block;
+  width: 560px;
+  height: 420px;
+  border: 4px solid #f7ead2;
+  border-radius: 10px;
+  background: #2a5a7c;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.panel .panel-label {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #c9d6e2;
+  letter-spacing: 2px;
+}
+
+.counter-bar {
+  text-align: center;
+  margin-top: 12px;
+}
+
+#counter-big {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffd76a;
+  margin: 0;
+}
+
+#counter-big.flash {
+  animation: counter-pop 0.45s ease-out;
+}
+
+@keyframes counter-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+#counter-sub {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: #c9d6e2;
+}
+
+#found-dots { margin-top: 8px; }
+
+.dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #f7ead2;
+  margin: 0 4px;
+}
+
+.dot.found {
+  background: #2fae5f;
+  border-color: #2fae5f;
+}
+
+#found-list {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #9fb4c4;
+  min-height: 18px;
+}
+
+#message-line {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-style: italic;
+  color: #ffe9a8;
+  min-height: 20px;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #8ba0b0;
+  margin-top: 10px;
+}
+
+/* Full-screen overlays: menu, round clear, final score. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 26, 38, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay.hidden { display: none; }
+
+.overlay .card {
+  background: #f7ead2;
+  color: #2e2a26;
+  border-radius: 14px;
+  padding: 28px 36px;
+  max-width: 560px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.overlay .card h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  color: #b5502e;
+}
+
+.overlay .card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.overlay .card .big-score {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b5502e;
+}
+
+.overlay .card button {
+  font-size: 18px;
+  padding: 12px 26px;
+  margin-top: 12px;
+}
+
+.overlay .card .keys {
+  font-size: 13px;
+  color: #6b5a45;
+  margin-top: 14px;
+}
