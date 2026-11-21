@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour Lights — Spot the Difference</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="hud">
+    <h1>Harbour Lights</h1>
+    <span class="stat" id="round-label">Round 1 of 3 — Golden Hour</span>
+    <span class="stat">Score <b id="score-value">0</b></span>
+    <span class="stat">Time <b id="time-value">3:00</b></span>
+    <span class="spacer"></span>
+    <button id="hint-button" type="button">Hint (<span id="hint-count">3</span> left)</button>
+    <button id="mute-button" type="button">Sound: on</button>
+  </header>
+
+  <main class="boards">
+    <div class="panel">
+      <canvas id="panel-left" width="560" height="420"></canvas>
+      <div class="panel-label">LEFT PICTURE</div>
+    </div>
+    <div class="panel">
+      <canvas id="panel-right" width="560" height="420"></canvas>
+      <div class="panel-label">RIGHT PICTURE</div>
+    </div>
+  </main>
+
+  <section class="counter-bar">
+    <p id="counter-big">7 of 7 differences left</p>
+    <p id="counter-sub">0 found</p>
+    <div id="found-dots"></div>
+    <p id="found-list">Nothing found yet — look closely!</p>
+    <p id="message-line">Find the 7 differences — click on either picture.</p>
+  </section>
+
+  <footer>Click a difference on either picture &middot; H for a hint &middot; M to mute &middot; Enter to start</footer>
+</div>
+
+<div class="overlay" id="menu-overlay">
+  <div class="card">
+    <h2>Harbour Lights</h2>
+    <p>A spot-the-difference game at a little harbour cafe. Two pictures sit
+    side by side — seven small things changed on the right. Find them all
+    before the clock runs out.</p>
+    <p id="menu-rounds"></p>
+    <p>Click a difference on either picture. A wrong click costs 10 points;
+    a hint costs 50. Finding everything fast earns a time bonus.</p>
+    <button id="start-button" type="button">Start the hunt</button>
+    <p class="keys">Mouse to click &middot; H hint &middot; M mute &middot; Enter start</p>
+  </div>
+</div>
+
+<div class="overlay hidden" id="round-overlay">
+  <div class="card">
+    <h2 id="round-title">Round clear!</h2>
+    <p id="round-detail"></p>
+    <p class="big-score" id="round-score"></p>
+    <button id="next-button" type="button">Next round</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="end-overlay">
+  <div class="card">
+    <h2 id="end-title">You found them all!</h2>
+    <p id="end-detail"></p>
+    <p class="big-score" id="end-score"></p>
+    <button id="again-button" type="button">Play again</button>
+  </div>
+</div>
+
+<script src="src/differences.js"></script>
+<script src="src/scenes.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/render.js"></script>
+<script src="src/input.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
